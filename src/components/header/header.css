@@ -1,0 +1,30 @@
+.header {
+    margin-top: 50px;
+}
+
+.header-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Benne', serif;
+    color: rgb(119, 119, 119);
+}
+
+.header-title-small {
+    position: absolute;
+    font-size: 20px;
+    top:77px;
+}
+
+.header-title-large {
+    position: absolute;
+    font-size: 80px;
+    top:111px
+    }
+
+.header-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    margin-top: 30px;
+}
