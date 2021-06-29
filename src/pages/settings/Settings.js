@@ -1,13 +1,20 @@
 import "./settings.css";
-import Sidebar from "../../components/sidebar/Sidebar"
+import Sidebar from "../../components/sidebar/Sidebar";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {logOut} from "../../store/userSlice"
 
 export default function Settings() {
+    const handleOnClick = (e) => {
+        e.preventDefault();
+    }
+    const dispatch = useDispatch();
     return (
         <div className="settings">
             <div className="settings-wrapper">
                 <div className="settings-title">
                     <span className="settings-update-title">Update Your Account</span>
-                    <span className="settings-delete-title">Delete Account</span>
+                    <Link onClick={()=>dispatch(logOut())} className="settings-delete-button" to="/">Delete Your Account</Link>
                 </div>
                 <form className="settings-form">
                     <label>Profile Picture</label>
@@ -27,7 +34,7 @@ export default function Settings() {
                     <input type="email" placeholder="ozansoyupak@gmail.com"/>
                     <label>Password</label>
                     <input type="password"/>
-                    <button className="settings-submit">Update</button>
+                    <button onClick={handleOnClick} className="settings-submit">Update</button>
                 </form>
             </div>
             <Sidebar />

@@ -1,7 +1,10 @@
 import "./login.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../store/userSlice";
 
 export default function Login() {
+    const dispatch = useDispatch();
     return (
         <div className="login">
             <span className="login-title">Login</span>
@@ -16,11 +19,13 @@ export default function Login() {
                     type="password" 
                     placeholder="Enter your password..."
                 />
-                <button className="login-button"><Link className="link" to="/">
+                <button onClick={()=>dispatch(logIn())} className="login-button"><Link className="link" to="/">
                 Login
               </Link></button>
             </form>
-            <button className="login-register-button">Register</button>
+            <button className="login-register-button"><Link className="link" to="/register">
+                Register
+              </Link></button>
         </div>
     )
 }

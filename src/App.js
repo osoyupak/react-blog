@@ -10,8 +10,11 @@ import Write from "./pages/write/Write";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 
+import { useSelector } from 'react-redux';
+
 function App() {
-  const user = false;
+  const loggedIn = useSelector((state) => state.user.loggedIn);
+
   return (
     <div>
       <BrowserRouter>
@@ -20,10 +23,11 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/register">{user ? <Home /> : <Register />}</Route>
-          <Route path="/login">{user ? <Home /> : <Login />}</Route>
-          <Route path="/write">{user ? <Write /> : <Login />}</Route>
-          <Route path="/settings">{user ? <Settings /> : <Login />}</Route>
+          <Route path="/register">{loggedIn ? <Home /> : <Register />}</Route>
+          <Route path="/login">{loggedIn ? <Home /> : <Login />}</Route>
+          <Route path="/write">{loggedIn ? <Write /> : <Login />}</Route>
+          <Route path="/settings">{loggedIn ? <Settings /> : <Login />}</Route>
+          <Route path="/single"><Single /></Route>
           <Route path="/post/:postId">
             <Single />
           </Route>

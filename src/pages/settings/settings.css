@@ -15,13 +15,18 @@
 .settings-update-title {
     font-size: 30px;
     margin-bottom: 20px;
-    color:red;
+    color:rgb(88, 88, 88);
 }
 
-.settings-delete-title {
-    color:red;
-    font-size: 12px;
-    cursor: pointer;
+.settings-delete-button {
+    text-decoration: none;
+    color: white;
+    background-color: tomato;
+    padding: 10px;    
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
 }
 
 .settings-form {
@@ -63,9 +68,14 @@
 .settings-form >input {
     color: grey;
     margin: 10px 0;
-    height: 30px;
+    height: 40px;
     border: none;
     border-bottom: 1px solid lightgray;
+}
+
+.settings-form >input:focus {
+    outline: rgb(233, 233, 233);
+    box-shadow: 0 0 10px #719ECE;
 }
 
 .settings-submit {
@@ -80,3 +90,7 @@
     margin-top: 20px;
     cursor: pointer;
 }
+
+
+
+

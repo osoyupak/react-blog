@@ -1,6 +1,10 @@
 import "./register.css";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {logIn} from "../../store/userSlice"
 
 export default function Register() {
+    const dispatch = useDispatch();
     return (
         <div className="register">
             <span className="register-title">Register</span>
@@ -20,9 +24,9 @@ export default function Register() {
                     type="password" 
                     placeholder="Enter your password..."
                 />
-                <button className="register-button">Register</button>
+                <button onClick={()=> dispatch(logIn())} className="register-button"><Link className="link" to="/">Register </Link></button>
             </form>
-            <button className="register-register-button">Login</button>
+            <Link to="/login" className="link register-register-button">Login</Link>
         </div>
     )
 }
